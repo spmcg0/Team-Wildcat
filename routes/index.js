@@ -3,7 +3,6 @@
  */
 
 var users = require('../lib/users');
-var spongebob = require('../lib/spongebob')
 
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
@@ -15,8 +14,3 @@ exports.timeline = function(req, res){
 	res.render('timeline', { tweets: tweets, user: user});
 };
 
-exports.profile_page = function(req,res){
-	var spongebobInfo = spongebob.getSpongebobInfo();
-	var spongebobTweets = spongebob.getSpongebobTweets();
-	res.render('profile_page', {spongebobInfo: spongebobInfo, spongebobTweets: spongebobTweets});
-};
