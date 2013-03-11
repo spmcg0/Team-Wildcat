@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Home</title>
+    	<link rel="stylesheet" href="/stylesheets/style.css" />
+    	<script type="text/javascript" src="user.js"></script>
+  	</head>
+  	<body>
+	  	<div id = "header" style="background-color:#000000;">
+			<button>Home</button>
+			<button>@ Connect</button>
+			<button># Discover</button>
+			<button>Me</button>
+			<button>Settings</button>
+			<button>Compose</button>
+		</div>
+		<div id="user_info">
+			<div id="profile_info">
+				<img src="http://summitvoice.files.wordpress.com/2010/01/spongebob-standup.jpg" height="50" weight="50"/>
+				<span id="profile_name" onclick="<insert link to profile"><%= user.name %></span>
+			</div>
+			<div id="profile_stats">
+				<span id="tweet_count"><%= user.tweetCount %></span>
+				<span id="follower_count"><%= user.followerCount %></span>
+				<span id="following_count"><%= user.followingCount %></span>
+			</div>
+		</div>
+		<div id="tweets">
+			<span id="tweets_title">Tweets</span>
+			<div id="tweets_content">
+			<ul style = "list-style:none;">
+				<% for (int k = 0; k < tweets.length; k++) { %>
+					<li><div class="following_tweet"><%= tweets[k].uname%>	<%= tweets[k].tweet %></li>
+				<% } %>
+			</ul>
+			</div>
+		</div>
+	</body>
+</html>
