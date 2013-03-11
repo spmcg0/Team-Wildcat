@@ -1,3 +1,3 @@
 exports.login = function(req,res) {
-  res.render('profilePage', {title: 'express'});
+  res.render('profile_page', {title: 'express'});
 }
