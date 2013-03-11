@@ -15,3 +15,7 @@ exports.timeline = function(req, res){
 		
   	res.render('timeline', { tweets: tweets, user: user});
 };
+
+exports.discover = function(req, res){
+	res.render('discover', {title: 'Discover'})
+}
