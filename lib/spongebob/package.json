@@ -1,5 +1,5 @@
 {
-	"name"			: "spongebob",
+	"name"			: "spongebobInfo",
 	"version" 		: "0.0.1",
 	"author"		: "Brett Stearns <bstearns@student.umass.edu>",
 	"desciption"	: "a library for accessing spongebob's tweet data",
