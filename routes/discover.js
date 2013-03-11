@@ -1,5 +1,5 @@
 
-var discover = require('../lib/discover')
+var discover = require('../lib/discover');
 
 
 exports.discover = function(req, res){
