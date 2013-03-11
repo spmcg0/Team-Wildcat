@@ -50,8 +50,15 @@
     	<li> <a href = "">UMass Amherst </a>
     </ul>
 
-    <p> Tweets would be on streaming in a timeline on the right of these tables.
-
-
+    <h1>Discover Tweets</h1>
+    <div id="discover-tweets">
+        <ul style = "list-style: none">
+            <%for (vark = 0; k < tweets.length; k++) { %>
+                <li style = "border-width:1px; border-color: black; border-style: solid; width: 50%;">
+                    <%= tweets[k].uname %>: <%= tweets[k].tweet %>
+                </li>
+            <% } %>
+        </ul>
+    </div
   </body>
 </html>

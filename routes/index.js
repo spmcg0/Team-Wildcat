@@ -4,6 +4,7 @@
 
 var users = require('../lib/users');
 var spongebob = require('../lib/spongebob')
+var discover = require('../lib/discover')
 
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
