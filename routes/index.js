@@ -36,7 +36,3 @@ exports.profile_page = function(req,res){
 exports.signUp = function(req, res){
   res.render('signUp', { title: 'Express' });
 };
-
-exports.timeline = function(req, res){
-  res.render('timeline', { title: 'Express' });
-};
