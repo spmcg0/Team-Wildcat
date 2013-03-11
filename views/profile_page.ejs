@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head> 
-<title>Profile Page</title>
-<head/>
+  <head> 
+		<title>Profile Page</title>
+		<script type="text/javascript" src="spongebob.js"></script>
+	<head/>
 
-<body>
-<div id = "header" style="background-color:#000000;">
-<button>Home</button>
-<button>@ Connect</button>
-<button># Discover</button>
-<button>Me</button>
-<button>Settings</button>
-<button>Compose</button></div>
+	<body>
+		<div id = "header" style="background-color:#000000;">
+			<button>Home</button>
+			<button>@ Connect</button>
+			<button># Discover</button>
+			<button>Me</button>
+			<button>Settings</button>
+			<button>Compose</button>
+		</div>
 
-<img src="http://images2.wikia.nocookie.net/__cb20101025015318/spongebob/images/c/c6/SpongeBob_SquarePants.svg" width="50" length="50">
-<h2>Spongebob Squarepants<h2/>
+		<div id="user_info">
+			<div id="profile_info">
+				<img src="http://images2.wikia.nocookie.net/__cb20101025015318/spongebob/images/c/c6/SpongeBob_SquarePants.svg" height="50" weight="50"/>
+				<span id="profile_name" onclick="<insert link to profile"><%= spongebob.name %></span>	
+			</div>
+			<div id="profile_stats">
+				<span id="tweet_count"><%= spongebob.tweetCount %></span>
+				<span id="follower_count"><%= spongebob.followerCount %></span>
+				<span id="following_count"><%= spongebob.followingCount %></span>
+			</div>
+		</div>
 
-<div id = "tweetInfo">
-<button>20000K TWEETS</button>
-<button>100 FOLLOWING</button>
-<button>0 FOLLOWERS</button></div>
+		<div id="tweets">
+			<span id="tweets_title"><b>Tweets</b></span>
+			<hr>
+			<div id="tweets_content">
+			<ul style = "list-style:none;">
+				<% for (int k = 0; k < spongebob.length; k++) { %>
+					<li><div class="following_tweet"><%= spongebob[k].uname%>	<%= spongebob[k].tweet %></li>
+					<hr>
+				<% } %>
+			</ul>
+			</div>
+		</div>
 
-<div id="tweets" style="background-color:#C0C0C0;height:600px;width:500px;">
-<b><strong>Tweets</strong></b><br>
-<hr>
-<small>WHERES PATRICK?!?!?!?!?</small><br>
-<hr>
-<small>Squidward</small><br>
-<hr>
-<small>I love the krusty krab!!!!!</small><br>
-<hr>
-<small>Brushing my teeth is so easy since I only have 2 tooths</small><br>
-<hr>
-<small>I wish someone would follow me :( even @IAMPATRICK won't</small><br>
-</div>
+	</body>
 
-</body>
 </html>
