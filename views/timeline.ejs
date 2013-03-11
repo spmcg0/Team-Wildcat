@@ -17,12 +17,12 @@
 		<div id="user_info">
 			<div id="profile_info">
 				<img src="http://summitvoice.files.wordpress.com/2010/01/spongebob-standup.jpg" height="50" weight="50"/>
-				<span id="profile_name" onclick="<insert link to profile"><%= user.name %></span>
+				<span id="profile_name" onclick="<insert link to profile>"><%- user.name %></span>
 			</div>
 			<div id="profile_stats">
-				<span id="tweet_count"><%= user.tweetCount %></span>
-				<span id="follower_count"><%= user.followerCount %></span>
-				<span id="following_count"><%= user.followingCount %></span>
+				<span id="tweet_count"><%- user.tweetCount %></span>
+				<span id="follower_count"><%- user.followerCount %></span>
+				<span id="following_count"><%- user.followingCount %></span>
 			</div>
 		</div>
 		<div id="tweets">
@@ -30,7 +30,7 @@
 			<div id="tweets_content">
 			<ul style = "list-style:none;">
 				<% for (int k = 0; k < tweets.length; k++) { %>
-					<li><div class="following_tweet"><%= tweets[k].uname%>	<%= tweets[k].tweet %></li>
+					<li><div class="following_tweet"><%- tweets[k].uname%>	<%- tweets[k].tweet %></li>
 				<% } %>
 			</ul>
 			</div>

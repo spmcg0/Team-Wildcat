@@ -1,3 +1,3 @@
-exports.timeline = function(req,res) {
-	res.render('timeline', {title: 'express'});
+exports.timeline = function(req, res){
+  res.render('timeline', { title: 'Express' });
 };
