@@ -1,4 +1,3 @@
-
 /*
  * GET home page.
  */
@@ -16,4 +15,10 @@ exports.timeline = function(req, res){
 };
 exports.discover = function(req, res){
 	res.render('discover', {title: 'Discover'})
-}
+};
+
+exports.profile_page = function(req,res){
+	var user = spongebob.getUsers();
+	var tweets = spongebob.getTweets();
+	res.render('profile_page', {tweets: tweets, user: user});
+};
