@@ -1,0 +1,7 @@
+{
+	"name"			: "discover",
+	"version"		: "0.0.1",
+	"author"		: "Michael Herbert <mjherber@student.umass.edu>",
+	"description"	: "a library of tailored tweets for users",
+	"main"			: "./discover.js"
+}
