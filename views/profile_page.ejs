@@ -20,21 +20,28 @@
 				<span id="profile_name" onclick="<insert link to profile"><%= spongebobInfo.name %></span>	
 			</div>
 			<div id="profile_stats">
-				<span id="tweet_count"><%= spongebobInfo.tweetCount %></span>
-				<span id="follower_count"><%= spongebobInfo.followerCount %></span>
-				<span id="following_count"><%= spongebobInfo.followingCount %></span>
+				<div id="tweet_count">
+					<span id="tweet_count_num"><%= spongebobInfo.tweetCount %></span>
+					<span id="tweet_count_text">Tweets</span>
+				</div>
+				<div id="follower_count">
+					<span id="follower_count_num"><%= spongebobInfo.followerCount %></span>
+					<span id="follower_count_text">Followers</span>
+				</div>
+				<div id="following_count">
+					<span id="following_count_num"><%= spongebobInfo.followingCount %></span>
+					<span id="following_count_text">Following</span>
+				</div>
 			</div>
 		</div>
 
 		<h1>Tweets</h1>
-		<hr>
 		<div id="tweets">
 			<ul style="list-style: none">
 				<% for (var k = 0; k < spongebobTweets.length; k++) { %>
 					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
 						<img src="http://images2.wikia.nocookie.net/__cb20101025015318/spongebob/images/c/c6/SpongeBob_SquarePants.svg" height="40" width="40" />
 						<%= spongebobTweets[k].uname %>: <%= spongebobTweets[k].tweet %> 
-						<hr>
 					</li>
 				<% } %>
 			</ul>
