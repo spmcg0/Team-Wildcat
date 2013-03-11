@@ -53,12 +53,12 @@
     <h1>Discover Tweets</h1>
     <div id="discover-tweets">
         <ul style = "list-style: none">
-            <%for (var k = 0; k < discoverTweets.length; k++) { %>
+            <% for (var k = 0; k < tweets.length; k++) { %>
                 <li style = "border-width:1px; border-color: black; border-style: solid; width: 50%;">
-                    <%= discoverTweets[k].uname %>: <%= discoverTweets[k].tweet %>
+                <%= tweets[k].uname %>: <%= tweets[k].tweet %>
                 </li>
             <% } %>
         </ul>
-    </div
+    </div>
   </body>
 </html>
