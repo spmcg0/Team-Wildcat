@@ -30,11 +30,9 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/timeline', routes.timeline);
 app.get('/profile_page', routes.profile_page);
-<<<<<<< HEAD
 app.get('/discover', routes.discover);
-=======
 app.get('/login', routes.login);
->>>>>>> edit
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
