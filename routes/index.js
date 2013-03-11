@@ -18,7 +18,7 @@ exports.discover = function(req, res){
 };
 
 exports.profile_page = function(req,res){
-	var spongebob = spongebob.getSpongebob();
+	var spongebob = spongebob.getSpongebobInfo();
 	var spongebobTweets = spongebob.getSpongebobTweets();
 	res.render('profile_page', {spongebobInfo: spongebobInfo, spongebobTweets: spongebobTweets});
 };
