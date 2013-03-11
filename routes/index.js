@@ -3,7 +3,7 @@
  */
 
 var users = require('../lib/users');
-var spongebob = require('..lib/spongebob')
+var spongebob = require('../lib/spongebob')
 
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
