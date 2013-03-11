@@ -3,6 +3,7 @@
  */
 
 var users = require('../lib/users');
+var spongebob = require('..lib/spongebob')
 
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
@@ -18,7 +19,7 @@ exports.discover = function(req, res){
 };
 
 exports.profile_page = function(req,res){
-	var spongebob = spongebobInfo.getSpongebobInfo();
+	var spongebobInfo = spongebob.getSpongebobInfo();
 	var spongebobTweets = spongebobInfo.getSpongebobTweets();
 	res.render('profile_page', {spongebobInfo: spongebobInfo, spongebobTweets: spongebobTweets});
 };
