@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head> 
+	<head> 
 		<title>Profile Page</title>
-		<script type="text/javascript" src="spongebob.js"></script>
 	<head/>
 
 	<body>
@@ -27,17 +26,18 @@
 			</div>
 		</div>
 
+		<h1>Tweets</h1>
+		<hr>
 		<div id="tweets">
-			<span id="tweets_title"><b>Tweets</b></span>
-			<hr>
-			<div id="tweets_content">
-			<ul style = "list-style:none;">
-				<% for (int k = 0; k < spongebob.length; k++) { %>
-					<li><div class="following_tweet"><%= spongebob[k].uname%>	<%= spongebob[k].tweet %></li>
-					<hr>
+			<ul style="list-style: none">
+				<% for (var k = 0; k < spongebobTweets.length; k++) { %>
+					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
+						<img src="http://images2.wikia.nocookie.net/__cb20101025015318/spongebob/images/c/c6/SpongeBob_SquarePants.svg" height="40" width="40" />
+						<%= spongebobTweets[k].uname %>: <%= spongebobTweets[k].tweet %> 
+						<hr>
+					</li>
 				<% } %>
 			</ul>
-			</div>
 		</div>
 
 	</body>
