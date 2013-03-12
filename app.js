@@ -4,6 +4,11 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , timeline = require('./routes/timeline')
+  , profile_page = require('./routes/profile_page')
+  , discover = require('./routes/discover')
+  , login = require('./routes/login')
+  , signUp = require('./routes/signUp')
   , http = require('http')
   , path = require('path');
 
@@ -28,10 +33,11 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/timeline', routes.timeline);
-app.get('/profile_page', routes.profile_page);
-app.get('/discover', routes.discover);
-app.get('/login', routes.login);
+app.get('/timeline', timeline.timeline);
+app.get('/profile_page', profile_page.profile_page);
+app.get('/discover', discover.discover);
+app.get('/login', login.login);
+app.get('/signUp', signUp.signUp);
 
 
 http.createServer(app).listen(app.get('port'), function(){

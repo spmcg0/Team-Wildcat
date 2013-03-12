@@ -1,7 +1,6 @@
 
 var discover = require('../lib/discover');
 
-
 exports.discover = function(req, res){
 	var user = discover.getUser();
 	var tweets = discover.getDiscoverTweets();
