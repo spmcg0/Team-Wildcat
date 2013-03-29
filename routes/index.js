@@ -17,7 +17,7 @@ exports.process = function (req, res) {
   var user = findUser(req);
 
   if (users.checkUser(user)) {
-    users.addUser(user); );
+    users.addUser(user); 
   }
   else {
     
