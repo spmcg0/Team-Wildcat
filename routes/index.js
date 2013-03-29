@@ -24,7 +24,9 @@ exports.process = function (req, res) {
     };
 
   }
-}
+  
+};
+  
 function userData(req) {
   var user;
   if (req.method === 'GET') {
