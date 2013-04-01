@@ -17,13 +17,14 @@ exports.process = function (req, res) {
   var user = userInfo(req);
 
   if (users.checkUser(user)) {
-    users.addUser(user); 
+    users.addUser(user);
+    
   }
   else {
     
 	'Please be sure to fill in both boxes. <br/>';
 
-   }
+  }
   
 };
   
@@ -39,7 +40,7 @@ function userInfo(req) {
   else {
     user = {
       username: req.body.username,
-      password : req.body.pasword,
+      password : req.body.password,
     };
   }
   
