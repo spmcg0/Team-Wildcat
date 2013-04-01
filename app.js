@@ -32,12 +32,14 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+//Routes
 app.get('/', routes.index);
 app.get('/timeline', timeline.timeline);
 app.get('/profile_page', profile_page.profile_page);
 app.get('/discover', discover.discover);
 app.get('/login', login.login);
 app.get('/signUp', signUp.signUp);
+app.get('/process/:id', routes.process);
 
 
 http.createServer(app).listen(app.get('port'), function(){

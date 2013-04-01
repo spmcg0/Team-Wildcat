@@ -14,18 +14,20 @@ var users = require('../lib/users');
 
 exports.process = function (req, res) {
   var id   = req.params.id;
-  var user = findUser(req);
+  var user = userInfo(req);
 
   if (users.checkUser(user)) {
     users.addUser(user); 
   }
   else {
     
-      }
+	'Please be sure to fill in both boxes. <br/>';
+
+   }
   
 };
   
-function userData(req) {
+function userInfo(req) {
   var user;
   if (req.method === 'GET') {
     user = {
