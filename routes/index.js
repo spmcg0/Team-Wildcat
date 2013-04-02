@@ -18,7 +18,6 @@ exports.process = function (req, res) {
 
   if (users.checkUser(user)) {
     users.addUser(user);
-    
   }
   else {
     
@@ -45,4 +44,4 @@ function userInfo(req) {
   }
   
   return user;
-}
+};
