@@ -45,7 +45,12 @@ exports.add = function (req, res) {
 	var uname = u.uname;
 	var pword = u.pword;
 	console.log(first + " " + last + " " + email + " " + uname + " " + pword);
-	user.addUser(first, last, email, uname, pword, function (){
-		res.redirect('/login');
+	user.addUser(first, last, email, uname, pword, function (error){
+		if (error){
+			message = error;
+			res.redirect('/register');
+		} else {
+			res.redirect('/login');
+		}
 	});
 };
