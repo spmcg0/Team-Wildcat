@@ -15,8 +15,8 @@
 		</div>
 		<div id="user_info">
 			<div id="profile_info">
-				<img id="profile_image" src=<%= user.imageLoc %> height="50" weight="50"/>
-				<span id="profile_name" onclick="<insert link to profile>"><%= user.first %> <%= user.last %></span>
+				<img id="profile_image" src=<%= user.image_loc %> height="50" weight="50"/>
+				<span id="profile_name" onclick="<insert link to profile>"><%= user.name %></span>
 			</div>
 			<div id="profile_stats">
 				<div id="tweet_count">
@@ -37,11 +37,10 @@
 		<h1>Tweets</h1>
 		<div id="tweets">
 			<ul style="list-style: none">
-				<% var len = (tweets === undefined) ? 0 : tweets.length; %>
-				<% for (var k = 0; k < len; k++) { %>
+				<% for (var k = 0; k < tweets.length; k++) { %>
 					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
 						<img src=<%= tweets[k].image_loc %> height="40" width="40" />
-						<%= tweets[k].name %>: <%= tweets[k].tweet %> 
+						<%= tweets[k].uname %>: <%= tweets[k].tweet %> 
 					</li>
 				<% } %>
 			</ul>

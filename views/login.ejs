@@ -9,11 +9,12 @@
 			<h1> Welcome to Twitter! Type in your Username and Password <h1/>
 			<h2> Dont have an Account? Make one here <h2/>
 			<!--<a href="SignUp.ejs">Sign Up</a> -->
-		<table>
-			<tr><td>Username:</td><td><input type="text" name="user"></td></tr>
-			<tr><td>Password:</td><td><input type="password" name="pass"></td></tr>
-			</table>
-		<button type="button">Log In!</button>
+		<form method="post" action="/login/auth">
+			Username: <input type="text" name="uname"><br>
+			Password: <input type="password" name="pword"><br>
+			<input type="submit" text="Login">
+		</form>
+		<%= message %>
 	</body>
 </html>
 		

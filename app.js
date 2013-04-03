@@ -10,7 +10,8 @@ var express = require('express')
   , login = require('./routes/login')
   , signUp = require('./routes/signUp')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , register = require('./routes/register');
 
 var app = express();
 
@@ -22,8 +23,8 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('your secret here'));
-  app.use(express.session());
+  app.use(express.cookieParser('cookies monster'));
+  // app.use(express.session());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -38,8 +39,17 @@ app.get('/timeline', timeline.timeline);
 app.get('/profile_page', profile_page.profile_page);
 app.get('/discover', discover.discover);
 app.get('/login', login.login);
+app.post('/login/auth', login.auth);
+app.get('/login/main', login.main);
+app.get('/login/timeline', login.timeline);
+// app.get('/login/online', login.online);
 app.get('/signUp', signUp.signUp);
+<<<<<<< HEAD
 app.get('/process/:id', routes.process);
+=======
+app.get('/register', register.register);
+app.post('/register/submit', register.submit);
+>>>>>>> Did mad shit fajee
 
 
 http.createServer(app).listen(app.get('port'), function(){
