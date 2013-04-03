@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<title>Profile Page</title>
+	<head/>
+
+	<body>
+		<div id = "header" style="background-color:#000000;">
+			<button>Home</button>
+			<button>@ Connect</button>
+			<button># Discover</button>
+			<button>Me</button>
+			<button>Settings</button>
+			<button>Compose</button>
+		</div>
+
+		<div id="user_info">
+			<div id="profile_info">
+				<img id="profile_image" src=<%= user.image_loc %> height="50" weight="50"/>
+				<span id="profile_name" onclick="<insert link to profile>"><%= user.name %></span>
+			</div>
+			<div id="profile_stats">
+				<div id="tweet_count">
+					<span id="tweet_count_num"><%= user.tweetCount %></span>
+					<span id="tweet_count_text">Tweets</span>
+				</div>
+				<div id="follower_count">
+					<span id="follower_count_num"><%= user.followerCount %></span>
+					<span id="follower_count_text">Followers</span>
+				</div>
+				<div id="following_count">
+					<span id="following_count_num"><%= user.followingCount %></span>
+					<span id="following_count_text">Following</span>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<form method ="post" id="tweet" action="/login/profile_page">
+				<input type="hidden" name="uname" value = <%= user.uname %> /> 
+				<input type="hidden" name="image_loc" value=<%= user.imageLoc %> />
+				<input type="text" name="tweet"/> 
+				<input type="submit" name="submit" value="Compose" />
+    		</form>	
+		</div>
+
+		<h1>Tweets</h1>
+		<div id="tweets">
+			<ul style="list-style: none">
+				<% var len = (tweets === undefined) ? 0 : tweets.length; %>
+				<% for (var k = len - 1; k >= 0; k--) { %>
+					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
+						<img src=<%= tweets[k].image_loc %> height="40" width="40" />
+						<%= tweets[k].name %>: <%= tweets[k].tweet %> 
+					</li>
+				<% } %>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

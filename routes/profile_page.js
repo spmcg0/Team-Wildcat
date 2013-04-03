@@ -1,14 +1,7 @@
-var spongebob = require('../lib/spongebob');
+var users = require('../lib/users');
 
-exports.profile_page = function(req,res){
-  	var spongebobInfo = spongebob.getSpongebobInfo();
-  	genTweets(function (ul) {
-      res.render('profile_page',
-                 { title: 'form - ' + id,
-                   id: id,
-                   msg: '',
-                   users: ul });
-    });
-	//var spongebobTweets = spongebob.getSpongebobTweets();
-	res.render('profile_page', {title: 'profile_page',spongebobInfo: spongebobInfo, spongebobTweets: spongebobTweets});
+exports.profile_page = function(req, res){
+  	var user = users.getUsers();
+  	var tweets = users.getTweets();
+	res.render('profile_page_mock', { tweets: tweets, user: user});
 };
