@@ -12,6 +12,10 @@ exports.submit = function (req, res) {
 	var uname = req.body.uname;
 	var pword = req.body.pword;
 	var confirmPword = req.body.confirmPword;
+	if (first === '' || last === '' || email === '' || uname === '' || pword === ''){
+		message = "Please fill in all the fields";
+		res.redirect('/register');
+	}
 	if (pword !== confirmPword){
 		message = "Passwords do not match";
 		res.redirect ('/register');
@@ -21,6 +25,7 @@ exports.submit = function (req, res) {
 		message = check;
 		res.redirect('/register');
 	} 
+	console.log("WTF");
 	user.addUser(first, last, email, uname, pword, function (){
 		res.redirect('/login');
 	});
