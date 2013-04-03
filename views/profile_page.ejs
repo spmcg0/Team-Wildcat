@@ -35,17 +35,19 @@
 			</div>
 		</div>
 
-		<h1>Tweets</h1>
-		<div id="tweets">
-			<ul style="list-style: none">
-				<% for (var k = 0; k < spongebobTweets.length; k++) { %>
-					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
-						<img src="http://images2.wikia.nocookie.net/__cb20101025015318/spongebob/images/c/c6/SpongeBob_SquarePants.svg" height="40" width="40" />
-						<%= spongebobTweets[k].uname %>: <%= spongebobTweets[k].tweet %> 
-					</li>
-				<% } %>
-			</ul>
+		<div>
+			<form method ="post" id="tweet" action="/profile_page">
+				<input type="hidden" name="uname" value = <%= spongebobInfo.name %> /> 
+				<input type="text" name="tweet"/> 
+				<input type="submit" name="submit" value="Compose" />
+    		</form>	
 		</div>
+
+		<h1>Tweets</h1>
+
+		<%- tweets %>
+
+
 
 	</body>
 
