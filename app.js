@@ -46,6 +46,7 @@ app.get('/login/timeline', login.timeline);
 app.get('/signUp', signUp.signUp);
 app.get('/register', register.register);
 app.post('/register/submit', register.submit);
+app.get('/register/add', register.add);
 
 
 http.createServer(app).listen(app.get('port'), function(){
