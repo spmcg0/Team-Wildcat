@@ -71,4 +71,58 @@ exports.timeline = function (req, res) {
 	var u = online[userid];
 	var t = u.tweets;
 	res.render('timeline', { tweets : t, user : u });
+};
+
+exports.profile_page = function (req, res) {
+  var userid = req.cookies.userid;
+  var u = online[userid];
+  var t = u.tweets;
+  res.render('profile_page', { tweets : t, user : u });
+};
+
+exports.tweet = function (req, res) {
+  var userid = req.cookies.userid;
+  var u = online[userid];
+  var tweet = tweetData(req);
+  console.log("adding tweet");
+  if(user.validateUserTweet(tweet)) {
+  	console.log("tweet validated");
+  	user.addUserTweet(tweet, function(error, tweets){
+  		online[userid]['tweets'] = tweets;
+  	});
+  	var t = u.tweets;
+  	console.log(t);
+  	console.log(t.length);
+  	console.log("tweet added");
+  	res.render('profile_page', { tweets : t, user : u });
+  }
+  else{
+    console.log('failed');
+  }
+};
+
+function tweetData(req) {
+  var tweet;
+  if(req.method == 'GET') {
+  	tweet = {
+      uname: req.query.uname,
+      tweets: {
+      	name: req.query.uname,
+      	image_loc: req.query.image_loc,
+      	tweet: req.query.tweet,
+      }
+    };
+  }
+  else {
+    tweet = {
+      uname: req.body.uname,
+      tweets: {
+      	name: req.body.uname,
+      	image_loc: req.body.image_loc,
+      	tweet: req.body.tweet,
+      }
+    };
+  }
+
+  return tweet;
 }

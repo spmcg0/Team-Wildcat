@@ -41,12 +41,14 @@ app.get('/discover', discover.discover);
 app.get('/login', login.login);
 app.post('/login/auth', login.auth);
 app.get('/login/main', login.main);
+app.get('/login/profile_page', login.profile_page);
 app.get('/login/timeline', login.timeline);
 // app.get('/login/online', login.online);
 app.get('/signUp', signUp.signUp);
 app.get('/register', register.register);
 app.post('/register/submit', register.submit);
 app.get('/register/add', register.add);
+app.post('/login/profile_page', login.tweet);
 
 
 http.createServer(app).listen(app.get('port'), function(){

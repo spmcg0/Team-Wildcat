@@ -16,38 +16,46 @@
 
 		<div id="user_info">
 			<div id="profile_info">
-				<img src="http://images2.wikia.nocookie.net/__cb20101025015318/spongebob/images/c/c6/SpongeBob_SquarePants.svg" height="50" weight="50"/>
-				<span id="profile_name" onclick="<insert link to profile"><%= spongebobInfo.name %></span>	
+				<img src=<%= user.imageLoc %> height="50" weight="50"/>
+				<span id="profile_name" onclick="<insert link to profile"><%= user.first %> <%= user.last %></span>	
 			</div>
 			<div id="profile_stats">
 				<div id="tweet_count">
-					<span id="tweet_count_num"><%= spongebobInfo.tweetCount %></span>
+					<span id="tweet_count_num"><%= user.tweetCount %></span>
 					<span id="tweet_count_text">Tweets</span>
 				</div>
 				<div id="follower_count">
-					<span id="follower_count_num"><%= spongebobInfo.followerCount %></span>
+					<span id="follower_count_num"><%= user.followerCount %></span>
 					<span id="follower_count_text">Followers</span>
 				</div>
 				<div id="following_count">
-					<span id="following_count_num"><%= spongebobInfo.followingCount %></span>
+					<span id="following_count_num"><%= user.followingCount %></span>
 					<span id="following_count_text">Following</span>
 				</div>
 			</div>
 		</div>
 
 		<div>
-			<form method ="post" id="tweet" action="/profile_page">
-				<input type="hidden" name="uname" value = <%= spongebobInfo.name %> /> 
+			<form method ="post" id="tweet" action="/login/profile_page">
+				<input type="hidden" name="uname" value = <%= user.uname %> /> 
+				<input type="hidden" name="image_loc" value=<%= user.imageLoc %> />
 				<input type="text" name="tweet"/> 
 				<input type="submit" name="submit" value="Compose" />
     		</form>	
 		</div>
 
 		<h1>Tweets</h1>
-
-		<%- tweets %>
-
-
+		<div id="tweets">
+			<ul style="list-style: none">
+				<% var len = (tweets === undefined) ? 0 : tweets.length; %>
+				<% for (var k = 0; k < len; k++) { %>
+					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
+						<img src=<%= tweets[k].image_loc %> height="40" width="40" />
+						<%= tweets[k].name %>: <%= tweets[k].tweet %> 
+					</li>
+				<% } %>
+			</ul>
+		</div>
 
 	</body>
 
