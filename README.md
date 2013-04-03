@@ -1,11 +1,5 @@
-��#� �C�M�P�S�C�I� �3�2�6� �W�e�b� �P�r�o�g�r�a�m�m�i�n�g�:� �T�e�a�m� �W�i�l�d�c�a�t�
-�
-�G�i�t�h�u�b� �U�R�L�:� �h�t�t�p�s�:�/�/�g�i�t�h�u�b�.�c�o�m�/�s�p�m�c�g�0�/�T�e�a�m�-�W�i�l�d�c�a�t�
-�
-�G�i�t� �R�e�p�o�:� �h�t�t�p�s�:�/�/�g�i�t�h�u�b�.�c�o�m�/�s�p�m�c�g�0�/�T�e�a�m�-�W�i�l�d�c�a�t�.�g�i�t�
-�
-�
-
+                                    Computer Science 326:  Team Wildcat 
+                                        
 
               How to Run
 You can run our app using `node app.js`
