@@ -8,7 +8,6 @@ var express = require('express')
   , profile_page = require('./routes/profile_page')
   , discover = require('./routes/discover')
   , login = require('./routes/login')
-  , signUp = require('./routes/signUp')
   , http = require('http')
   , path = require('path')
   , register = require('./routes/register');
@@ -44,7 +43,6 @@ app.get('/login/main', login.main);
 app.get('/login/profile_page', login.profile_page);
 app.get('/login/timeline', login.timeline);
 // app.get('/login/online', login.online);
-app.get('/signUp', signUp.signUp);
 app.get('/register', register.register);
 app.post('/register/submit', register.submit);
 app.get('/register/add', register.add);
