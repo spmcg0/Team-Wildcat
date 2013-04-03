@@ -44,12 +44,8 @@ app.get('/login/main', login.main);
 app.get('/login/timeline', login.timeline);
 // app.get('/login/online', login.online);
 app.get('/signUp', signUp.signUp);
-<<<<<<< HEAD
-app.get('/process/:id', routes.process);
-=======
 app.get('/register', register.register);
 app.post('/register/submit', register.submit);
->>>>>>> Did mad shit fajee
 
 
 http.createServer(app).listen(app.get('port'), function(){
