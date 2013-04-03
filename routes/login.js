@@ -84,16 +84,11 @@ exports.tweet = function (req, res) {
   var userid = req.cookies.userid;
   var u = online[userid];
   var tweet = tweetData(req);
-  console.log("adding tweet");
   if(user.validateUserTweet(tweet)) {
-  	console.log("tweet validated");
   	user.addUserTweet(tweet, function(error, tweets){
   		online[userid]['tweets'] = tweets;
   	});
   	var t = u.tweets;
-  	console.log(t);
-  	console.log(t.length);
-  	console.log("tweet added");
   	res.render('profile_page', { tweets : t, user : u });
   }
   else{
