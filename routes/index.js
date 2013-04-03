@@ -21,7 +21,7 @@ exports.process = function (req, res) {
   }
   else {
     
-	'Please be sure to fill in both boxes. <br/>';
+  'Please be sure to fill in both boxes. <br/>';
 
   }
   
