@@ -28,6 +28,15 @@ exports.login = function(req, res){
 	}
 };
 
+exports.logout = function (req, res) {
+	var userid = req.cookies.userid;
+	if (online[userid] !== undefined) {
+		res.clearCookie('userid');
+    	delete online[userid];
+  	}
+  	res.redirect('/login');
+};
+
 exports.auth = function(req, res){
 	var userid = req.cookies.userid;
 	if (userid !== undefined && online[userid] !== undefined) {

@@ -49,6 +49,7 @@ app.get('/register', register.register);
 app.post('/register/submit', register.submit);
 app.get('/register/add', register.add);
 app.post('/login/profile_page', login.tweet);
+app.get('/logout', login.logout);
 
 
 http.createServer(app).listen(app.get('port'), function(){
