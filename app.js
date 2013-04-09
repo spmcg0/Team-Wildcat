@@ -8,6 +8,7 @@ var express = require('express')
   , profile_page = require('./routes/profile_page')
   , discover = require('./routes/discover')
   , login = require('./routes/login')
+  , search = require('./routes/search')
   , http = require('http')
   , path = require('path')
   , register = require('./routes/register');
@@ -29,6 +30,10 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+
+app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
@@ -48,8 +53,24 @@ app.post('/register/submit', register.submit);
 app.get('/register/add', register.add);
 app.post('/login/profile_page', login.tweet);
 app.get('/logout', login.logout);
+app.get('/search', search.search);
+app.post('/follow', search.follow);
 
+var server = http.createServer(app);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+// WebSockets/Socket.IO
+var io       = require('socket.io', {'log level': 0}).listen(server);
+var tweetApp = require('./lib');
+
+io.sockets.on('connection', function (socket) {
+  tweetApp.init(socket);
 });
+
+server.listen(3000, function(){
+  console.log("Express server listening on port %d in %s mode",
+              server.address().port, app.settings.env);
+});
+
+//http.createServer(app).listen(app.get('port'), function(){
+  //console.log("Express server listening on port " + app.get('port'));
+//});

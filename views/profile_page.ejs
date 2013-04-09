@@ -18,6 +18,13 @@
 			<a href="/logout">
 				<button>Logout</button>
 			</a>
+			<form method ="get" id ="seach" style="float:right;" action="/search">
+				<input type="hidden" name="uname" value=<%= user.uname %> />
+				<input type="hidden" name="pword" value=<%= user.pword %> />
+				<input type="text" name="search_uname"/>
+				<input type="submit" name="submit" value="Search" />
+			</form>
+
 		</div>
 
 		<div id="user_info">
@@ -42,7 +49,7 @@
 		</div>
 
 		<div>
-			<form method ="post" id="tweet" action="/login/profile_page">
+			<form method ="post" id="tweet" >
 				<input type="hidden" name="uname" value = <%= user.uname %> /> 
 				<input type="hidden" name="image_loc" value=<%= user.imageLoc %> />
 				<input type="text" name="tweet"/> 

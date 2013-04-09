@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Home</title>
+  	</head>
+  	<body>
+	  	<div id = "header" style="background-color:#000000;">
+			<a href="/login/timeline">
+				<button>Home</button>
+			</a>
+			<button>@ Connect</button>
+			<button># Discover</button>
+			<a href="/login/profile_page">
+				<button>Me</button>	
+			</a>
+			<button>Settings</button>
+			<a href="/logout">
+				<button>Logout</button>
+			</a>
+			<form method ="get" id ="seach" style="float:right;" action="/search">
+				<input type="hidden" name="uname" value=<%= user.uname %> />
+				<input type="hidden" name="pword" value=<%= user.pword %> />
+				<input type="text" name="search_uname"/>
+				<input type="submit" name="submit" value="Search" />
+			</form>
+		</div>
+		<h2>Current User: <%= user.uname %></h2>
+
+		<h1>Search Results</h1>
+		<div id="search_results">
+			<ul style="list-style: none">
+				<% var len = (users === undefined) ? 0 : users.length; %>
+				<% for (var k = 0; k < len; k++) { %>
+					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
+						<img src=<%= users[k].imageLoc %> height="40" width="40" />
+						<%= users[k].first %> <%= users[k].last %>: <%= users[k].uname %> 
+						<form method ="post" id ="follow" style="float:right;" action="/follow">
+							<input type="hidden" name="current_uname" value=<%= user.uname %> />
+							<input type="hidden" name="current_pword" value=<%= user.pword %> />
+							<input type="hidden" name="user_to_follow_uname" value= <%= users[k].uname %> />
+							<input type="hidden" name="user_to_follow_pword" value= <%= users[k].pword %> />
+							<input type="submit" name="submit" value="Follow" />
+						</form>
+					</li>
+				<% } %>
+			</ul>
+		</div>
+
+	</body>
+</html>

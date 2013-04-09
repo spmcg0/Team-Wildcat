@@ -97,6 +97,7 @@ exports.tweet = function (req, res) {
   	user.addUserTweet(tweet, function(error, tweets){
   		online[userid]['tweets'] = tweets;
   	});
+  	u.tweetCount++;
   	var t = u.tweets;
   	res.render('profile_page', { tweets : t, user : u });
   }
@@ -127,6 +128,6 @@ function tweetData(req) {
       }
     };
   }
-
   return tweet;
 }
+
