@@ -47,6 +47,8 @@ app.post('/login/auth', login.auth);
 app.get('/login/main', login.main);
 app.get('/login/profile_page', login.profile_page);
 app.get('/login/timeline', login.timeline);
+app.get('/login/followers', login.followers);
+app.get('/login/following', login.following);
 // app.get('/login/online', login.online);
 app.get('/register', register.register);
 app.post('/register/submit', register.submit);

@@ -38,12 +38,14 @@
 					<span id="tweet_count_text">Tweets</span>
 				</div>
 				<div id="follower_count">
-					<span id="follower_count_num"><%= user.followerCount %></span>
-					<span id="follower_count_text">Followers</span>
+					<a href="/login/followers">
+						<button><%= user.followerCount %> Followers </button>
+					</a>
 				</div>
 				<div id="following_count">
-					<span id="following_count_num"><%= user.followingCount %></span>
-					<span id="following_count_text">Following</span>
+					<a href="/login/following">
+						<button><%= user.followingCount %> Following </button>
+					</a>
 				</div>
 			</div>
 		</div>

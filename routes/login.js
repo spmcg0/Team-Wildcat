@@ -68,9 +68,29 @@ exports.main = function (req, res) {
 	else {
 		var u = online[userid];
 		user.getUserTweets (u, function(error, tweets){
-			online[userid]['tweets'] = tweets;
-			res.redirect('/login/timeline');
+			if(error){
+				console.log("error");
+			}else{
+				online[userid]['tweets'] = tweets;	
+			}
 		});
+		user.getUserFollowers (u, function(error, followers){
+			if(error){
+				console.log("error");
+			}
+			else{
+				online[userid]['followers'] = followers;	
+			}
+		});
+		user.getUserFollowings (u, function(error, followings){
+			if(error){
+				console.log("error");
+			}
+			else{
+				online[userid]['followings'] = followings;	
+			}
+		});
+		res.redirect('/login/timeline');
 
 	}
 };
@@ -87,6 +107,20 @@ exports.profile_page = function (req, res) {
   var u = online[userid];
   var t = u.tweets;
   res.render('profile_page', { tweets : t, user : u });
+};
+
+exports.followers = function (req, res) {
+  var userid = req.cookies.userid;
+  var u = online[userid];
+  var f = u.followers;
+  res.render('followers', { followers : f, user : u });
+};
+
+exports.following = function (req, res) {
+  var userid = req.cookies.userid;
+  var u = online[userid];
+  var f = u.followings;
+  res.render('following', { following : f, user : u });
 };
 
 exports.tweet = function (req, res) {

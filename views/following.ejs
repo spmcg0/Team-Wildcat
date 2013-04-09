@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    	<title>Home</title>
+    	<title>Following</title>
   	</head>
   	<body>
 	  	<div id = "header" style="background-color:#000000;">
@@ -46,14 +46,14 @@
 				</div>
 		</div>
 
-		<h1>Tweets</h1>
-		<div id="tweets">
+		<h1>Following</h1>
+		<div id="following">
 			<ul style="list-style: none">
-				<% var len = (tweets === undefined) ? 0 : tweets.length; %>
-				<% for (var k = len - 1; k >= 0; k--) { %>
+				<% var len = (following === undefined) ? 0 : following.length; %>
+				<% for (var k = 0; k < len; k++) { %>
 					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
-						<img src=<%= tweets[k].image_loc %> height="40" width="40" />
-						<%= tweets[k].name %>: <%= tweets[k].tweet %> 
+						<img src=<%= following[k].imageLoc %> height="40" width="40" />
+						<%= following[k].first %> <%= following[k].last %>: <%= following[k].uname %> 
 					</li>
 				<% } %>
 			</ul>
