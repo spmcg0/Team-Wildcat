@@ -20,4 +20,7 @@ You can run our app using `node app.js`
                   
 -profile_page.ejs: New form added to allow the posting of tweets. 
 
+Project Assignment 04 Additions
+
+- Ajax - 
 
