@@ -2,7 +2,7 @@ function publisher() {
 	var subscribers = {};
 	var obj = {};
 
-	obj.subscrive = function (type, fn) {
+	obj.subscribe = function (type, fn) {
 		if (subscribers[type] === undefined) {
 			subscribers[type] = [];
 		}
