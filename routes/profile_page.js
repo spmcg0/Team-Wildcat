@@ -23,6 +23,8 @@ exports.tweet = function (req, res) {
   }
 };
 
+
+
 var postPair = function (idx, format, callback)
 {
     var req = new HttpRequest();
@@ -36,7 +38,7 @@ var postPair = function (idx, format, callback)
  
  
     req.onreadystatechange = function () {
-    //1-5 4  means itsDONE
+    //0-4 4  means itsDONE
       if (req.readyState === 4 && callback) {
         if (format === 'xml') {
           callback(req.responseXML);

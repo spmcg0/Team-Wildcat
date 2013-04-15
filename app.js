@@ -77,4 +77,4 @@ server.listen(3000, function(){
   //console.log("Express server listening on port " + app.get('port'));
 //});
 
-app.post('/follow', search.follow);
+app.post('/tweet', profile_page.tweet);
