@@ -77,18 +77,4 @@ server.listen(3000, function(){
   //console.log("Express server listening on port " + app.get('port'));
 //});
 
-$(function () {
-    var input  = $('form#ajax > input[type=text]');
-    input.bind('keyup', function (e) {
-      var val = input.val();
-      if (val) {
-        $.get('data/' + val, function (tweet) {
-          $('div#display').html(tweet);
-        });
-      }
-      else {
-    input.val('');
-      }
-        return false;
-    });
-});
+app.post('/follow', search.follow);

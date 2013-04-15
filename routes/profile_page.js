@@ -22,3 +22,28 @@ exports.tweet = function (req, res) {
     console.log('failed');
   }
 };
+
+var postPair = function (idx, format, callback)
+{
+    var req = new HttpRequest();
+ 
+        if(format === 'xml'){
+         req.open('Post', '/get-pairs/xml');
+        }
+    else{
+         req.open('Post', 'get-pairs/json');
+        }
+ 
+ 
+    req.onreadystatechange = function () {
+    //1-5 4  means itsDONE
+      if (req.readyState === 4 && callback) {
+        if (format === 'xml') {
+          callback(req.responseXML);
+        }
+        else {
+          callback(JSON.parse(req.responseText));
+        }
+      }
+    };
+};
