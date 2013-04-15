@@ -53,7 +53,14 @@
 				<% for (var k = 0; k < len; k++) { %>
 					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
 						<img src=<%= followers[k].imageLoc %> height="40" width="40" />
-						<%= followers[k].first %> <%= followers[k].last %>: <%= followers[k].uname %> 
+						<%= followers[k].first %> <%= followers[k].last %>: <%= followers[k].uname %>
+						<form method ="post" id ="follow" style="float:right;" action="/follow">
+							<input type="hidden" name="current_uname" value=<%= user.uname %> />
+							<input type="hidden" name="current_pword" value=<%= user.pword %> />
+							<input type="hidden" name="user_to_follow_uname" value= <%= followers[k].uname %> />
+							<input type="hidden" name="user_to_follow_pword" value= <%= followers[k].pword %> />
+							<input type="submit" name="submit" value="Follow" />
+						</form> 
 					</li>
 				<% } %>
 			</ul>

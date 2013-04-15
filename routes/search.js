@@ -25,27 +25,33 @@ exports.follow = function (req, res) {
   var current_uname = req.body.current_uname;
   var current_pword = req.body.current_pword;
   var cuurent_user;
-  user.getUser(current_uname, current_pword, function (error, user){
+  var user_to_follow_uname = req.body.user_to_follow_uname;
+  var user_to_follow_pword = req.body.user_to_follow_pword;
+  var user_to_follow;
+  if(current_uname === user_to_follow_uname){
+    res.redirect('/login/timeline');
+  }
+  else{
+    user.getUser(current_uname, current_pword, function (error, user){
       if (error){
         res.redirect('/login');
       } else {
         current_user = user;
       }
-  });
-  var user_to_follow_uname = req.body.user_to_follow_uname;
-  var user_to_follow_pword = req.body.user_to_follow_pword;
-  var user_to_follow;
-  user.getUser(user_to_follow_uname, user_to_follow_pword, function (error, user){
+    });
+    user.getUser(user_to_follow_uname, user_to_follow_pword, function (error, user){
       if (error){
         res.redirect('/login');
       } else {
         user_to_follow = user;
       }
-  });
-  user.addUserFollowing(current_user, user_to_follow, function (error, users){
-    current_user.followingCount++;
-    user_to_follow.followerCount++;
-    res.redirect('/login/timeline');
-  });
+    });
+    user.addUserFollowing(current_user, user_to_follow, function (error, users){
+      current_user.followingCount++;
+      user_to_follow.followerCount++;
+      res.redirect('/login/timeline');
+    });  
+  }
+  
   
 };
