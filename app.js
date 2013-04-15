@@ -76,3 +76,24 @@ server.listen(3000, function(){
 //http.createServer(app).listen(app.get('port'), function(){
   //console.log("Express server listening on port " + app.get('port'));
 //});
+
+
+//Ajax request for button
+
+//$('#get').bind('click',
+//function (event) {
+ 
+// Load the "data":
+//loaddata('data.html');
+ 
+// Get the id to display:
+//var id = $('input').val();
+ 
+// Display data after 300 ms:
+//setTimeout(function () {
+//var data = getdata(id);
+//$('#output').text(data);
+//}, 300);
+//return false;
+//});
+//</script> 
