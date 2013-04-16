@@ -57,6 +57,7 @@ app.post('/login/profile_page', login.tweet);
 app.get('/logout', login.logout);
 app.get('/search', search.search);
 app.post('/follow', search.follow);
+app.post('/login/tweet', login.postTweet);
 
 var server = http.createServer(app);
 
