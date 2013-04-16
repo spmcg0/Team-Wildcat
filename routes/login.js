@@ -74,6 +74,14 @@ exports.main = function (req, res) {
 				online[userid]['tweets'] = tweets;	
 			}
 		});
+		user.getUserTimeline(u, function(error, timeline){
+			if(error){
+				console.log("error in getting timeline");
+			}
+			else{
+				online[userid]['timeline'] = timeline;
+			}
+		})
 		user.getUserFollowers (u, function(error, followers){
 			if(error){
 				console.log("error");
@@ -98,8 +106,8 @@ exports.main = function (req, res) {
 exports.timeline = function (req, res) {
 	var userid = req.cookies.userid;
 	var u = online[userid];
-	var t = u.tweets;
-	res.render('timeline', { tweets : t, user : u });
+	var t = u.timeline;
+	res.render('timeline', { timeline : t, user : u });
 };
 
 exports.profile_page = function (req, res) {

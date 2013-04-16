@@ -49,7 +49,7 @@ exports.follow = function (req, res) {
     user.addUserFollowing(current_user, user_to_follow, function (error, users){
       current_user.followingCount++;
       user_to_follow.followerCount++;
-      res.redirect('/login/timeline');
+      res.redirect('/login/main');
     });  
   }
   
