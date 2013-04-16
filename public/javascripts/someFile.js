@@ -11,7 +11,7 @@
 // loadjsfile("client.js", "js");
 // loadjsfile("profile_page.js", "js");
 
-function tweetDatShit(){
+function attemptTweet(){
 	var text = $('input[name="tweet"]').val();
 	var uname = $('input[name="uname"]').val();
 	var image_loc = $('input[name="image_loc"]').val();
@@ -35,5 +35,6 @@ function tweetCallback(response) {
 			"<li style='border-width: 1px; border-color: black; border-style: solid; width: 50%;'>" + 
 			"<img src=" + t.image_loc + " height='40' width='40' />" + t.name + ": " + t.tweet +
 			"</li>");
+		$('input[name="tweet"]').val("");
 	}
 }
