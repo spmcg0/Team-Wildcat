@@ -131,23 +131,6 @@ exports.following = function (req, res) {
   res.render('following', { following : f, user : u });
 };
 
-exports.tweet = function (req, res) {
-  var userid = req.cookies.userid;
-  var u = online[userid];
-  var tweet = tweetData(req);
-  if(user.validateUserTweet(tweet)) {
-  	user.addUserTweet(tweet, function(error, tweets){
-  		online[userid]['tweets'] = tweets;
-  	});
-  	u.tweetCount++;
-  	var t = u.tweets;
-  	res.render('profile_page', { tweets : t, user : u });
-  }
-  else{
-    console.log('failed');
-  }
-};
-
 function tweetData(req) {
   var tweet;
   if(req.method == 'GET') {
