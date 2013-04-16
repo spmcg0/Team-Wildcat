@@ -23,8 +23,6 @@ exports.tweet = function (req, res) {
   }
 };
 
-
-
 var postPair = function (idx, format, callback)
 {
     var req = new HttpRequest();

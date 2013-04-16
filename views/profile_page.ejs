@@ -2,6 +2,8 @@
 <html>
 	<head> 
 		<title>Profile Page</title>
+		<script type="text/javascript" src="/javascripts/jquery-min.js"></script>
+		<script type="text/javascript" src="/javascripts/someFile.js"></script>
 	<head/>
 
 	<body>
@@ -51,17 +53,15 @@
 		</div>
 
 		<div>
-			<form method ="post" id="tweet" >
-				<input type="hidden" name="uname" value = <%= user.uname %> /> 
-				<input type="hidden" name="image_loc" value=<%= user.imageLoc %> />
-				<input type="text" name="tweet" placeholder="Tweet!"/> 
-				<input type="submit" name="submit" value="Compose" />
-    		</form>	
+			<input type="hidden" name="uname" value = <%= user.uname %> /> 
+			<input type="hidden" name="image_loc" value=<%= user.imageLoc %> />
+			<input type="text" name="tweet" placeholder="Tweet!"/> 
+			<input type="button" name="submit" value="Compose" onclick="tweetDatShit()" />
 		</div>
 
 		<h1>Tweets</h1>
 		<div id="tweets">
-			<ul style="list-style: none">
+			<ul style="list-style: none" id="tweet_list">
 				<% var len = (tweets === undefined) ? 0 : tweets.length; %>
 				<% for (var k = len - 1; k >= 0; k--) { %>
 					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
