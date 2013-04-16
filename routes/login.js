@@ -194,4 +194,10 @@ exports.postTweet = function (req, res) {
   }
 };
 
-
+exports.initSocket = function(socket) {
+	sockets.on('tweet', function (data)) {
+		console.log("Recieved post: " + JSON.stringify(data));
+		// Get the user names that follow this guy
+		// For each one emit their name with new tweet object
+	}
+}

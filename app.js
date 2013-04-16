@@ -63,10 +63,9 @@ var server = http.createServer(app);
 
 // WebSockets/Socket.IO
 var io       = require('socket.io', {'log level': 0}).listen(server);
-var timelineApp = require('./lib');
 
 io.sockets.on('connection', function (socket) {
-  timelineApp.init(socket);
+  login.init(socket);
 });
 
 server.listen(3000, function(){
