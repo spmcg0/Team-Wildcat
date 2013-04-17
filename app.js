@@ -53,7 +53,6 @@ app.get('/login/following', login.following);
 app.get('/register', register.register);
 app.post('/register/submit', register.submit);
 app.get('/register/add', register.add);
-app.post('/login/profile_page', login.tweet);
 app.get('/logout', login.logout);
 app.get('/search', search.search);
 app.post('/follow', search.follow);
