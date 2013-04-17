@@ -1,5 +1,6 @@
 function updateTimeline(t){
-  $('#tweets ul').prepend(
+  console.log("recieved: " + t);
+  $('#timeline ul').prepend(
       "<li style='border-width: 1px; border-color: black; border-style: solid; width: 50%;'>" + 
       "<img src=" + t.image_loc + " height='40' width='40' />" + t.name + ": " + t.tweet +
       "</li>");

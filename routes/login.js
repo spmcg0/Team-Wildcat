@@ -168,7 +168,7 @@ exports.postTweet = function (req, res) {
     });
     u.tweetCount++;
     var t = u.tweets;
-    var resp = { tweets : t, user : u };
+    var resp = { tweets : t, uname : u.uname };
     console.log(resp);
    	res.json(resp);
   }
@@ -180,9 +180,11 @@ exports.postTweet = function (req, res) {
 exports.initSocket = function(socket) {
 	socket.on('tweet', function (data) {
 		// console.log("Recieved post: " + JSON.stringify(data));
+		console.log("Recieved socket info for " + data);
 		user.getUserFollowers(data.user, function (error, followers){
 			for (var k = 0; k < followers.length; k++){
 				var follower = followers[k];
+				console.log("Sending information to " + follower.uname);
 				socket.broadcast.emit (follower.uname, data.tweet); // Broadcasts the new tweet to each of the user's followers by user name
 			}
 		});

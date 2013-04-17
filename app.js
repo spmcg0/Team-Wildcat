@@ -61,7 +61,7 @@ app.post('/login/tweet', login.postTweet);
 var server = http.createServer(app);
 
 // WebSockets/Socket.IO
-var io       = require('socket.io', {'log level': 0}).listen(server);
+var io = require('socket.io', {'log level': 0}).listen(server);
 
 io.sockets.on('connection', function (socket) {
   login.initSocket(socket);

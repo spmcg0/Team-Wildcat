@@ -29,7 +29,7 @@ function attemptTweet(){
 }
 
 function tweetCallback(response) {
-	if (response.tweets !== undefined && response.user !== undefined){
+	if (response.tweets !== undefined && response.uname !== undefined){
 		var t = response.tweets[response.tweets.length-1];
 		$('#tweets ul').prepend(
 			"<li style='border-width: 1px; border-color: black; border-style: solid; width: 50%;'>" + 
@@ -39,6 +39,7 @@ function tweetCallback(response) {
 		// TODO broadcast the tweet stuff
 		console.log("attempting to emit the tweet");
 		var socket = io.connect();
-		socket.emit('tweet', {tweet: t, user : response.user});
+		console.log("connected to socket");
+		socket.emit('tweet', {tweet: t, user : response.uname});
 	}
 }
