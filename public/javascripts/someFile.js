@@ -36,5 +36,9 @@ function tweetCallback(response) {
 			"<img src=" + t.image_loc + " height='40' width='40' />" + t.name + ": " + t.tweet +
 			"</li>");
 		$('input[name="tweet"]').val("");
+		// TODO broadcast the tweet stuff
+		console.log("attempting to emit the tweet");
+		var socket = io.connect();
+		socket.emit('tweet', {tweet: t, user : response.user});
 	}
 }

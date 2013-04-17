@@ -65,7 +65,7 @@ var server = http.createServer(app);
 var io       = require('socket.io', {'log level': 0}).listen(server);
 
 io.sockets.on('connection', function (socket) {
-  login.init(socket);
+  login.initSocket(socket);
 });
 
 server.listen(3000, function(){
