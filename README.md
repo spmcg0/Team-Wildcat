@@ -16,11 +16,20 @@ You can run our app using `node app.js`
                Function checkCredentials: checks to see if all the fields have been filled.
                Function add: adds a new user by taking the information from the register form and sending it to user.js.
 
--profile_page.js: Function genTweets: creats a tweet with the info from the profile page form.
+- profile_page.js: Function genTweets: creats a tweet with the info from the profile page form.
                   
--profile_page.ejs: New form added to allow the posting of tweets. 
+- profile_page.ejs: New form added to allow the posting of tweets. 
 
 Project Assignment 04 Additions
 
+- added socket.io in node_modules
+- added routing for any additions
+
 - Ajax - 
 
+- profile_page.js: Function postPair: creates an XMLHTTPRequest (depending on the format, xml or json) and POSTs
+- javascripts/someFile.js - function: attemptTweet: takes the username and tweet and creates an XMLHttpRequest and tries to POST that data to our local /login/
+
+- Websockets -
+
+- javascripts/timeline_update.js: function updateTimeline: adds received tweets to the timeline (formatted for the table)
