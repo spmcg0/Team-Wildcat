@@ -24,7 +24,6 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser('cookies monster'));
-  // app.use(express.session());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -49,7 +48,6 @@ app.get('/login/profile_page', login.profile_page);
 app.get('/login/timeline', login.timeline);
 app.get('/login/followers', login.followers);
 app.get('/login/following', login.following);
-// app.get('/login/online', login.online);
 app.get('/register', register.register);
 app.post('/register/submit', register.submit);
 app.get('/register/add', register.add);
@@ -72,8 +70,3 @@ server.listen(3000, function(){
               server.address().port, app.settings.env);
 });
 
-//http.createServer(app).listen(app.get('port'), function(){
-  //console.log("Express server listening on port " + app.get('port'));
-//});
-
-app.post('/tweet', profile_page.tweet);
