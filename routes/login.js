@@ -82,7 +82,7 @@ exports.main = function (req, res) {
 				online[userid]['timeline'] = timeline;
 			}
 		})
-		user.getUserFollowers (u, function(error, followers){
+		user.getUserFollowers (u.uname, function(error, followers){
 			if(error){
 				console.log("error");
 			}
