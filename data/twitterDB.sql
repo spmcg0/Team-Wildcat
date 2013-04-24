@@ -4,7 +4,8 @@ create table Users (
 	last_name varchar(255),
 	uname varchar(16),
 	pword varchar(16),
-	image_loc varchar(255)
+	image_loc varchar(255),
+	fake_followers integer
 );
 
 create table Tweets (
