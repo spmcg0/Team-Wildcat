@@ -158,23 +158,23 @@ function tweetData(req) {
 
 exports.postTweet = function (req, res) {
 	console.log ("beginning to post");
-  var userid = req.cookies.userid;
-  var u = online[userid];
-  var tweet = tweetData(req);
-  console.log(tweet);
-  if(user.validateUserTweet(tweet)) {
-    user.addUserTweet(tweet, function(error, tweets){
-      online[userid]['tweets'] = tweets;
-    });
-    u.tweetCount++;
-    var t = u.tweets;
-    var resp = { tweets : t, uname : u.uname };
-    console.log(resp);
-   	res.json(resp);
-  }
-  else{
-    console.log('failed');
-  }
+	var userid = req.cookies.userid;
+	var u = online[userid];
+	var tweet = tweetData(req);
+	console.log(tweet);
+	if(user.validateUserTweet(tweet)) {
+	user.addUserTweet(tweet, function(error, tweets){
+	  online[userid]['tweets'] = tweets;
+	});
+	u.tweetCount++;
+	var t = u.tweets;
+	var resp = { tweets : t, uname : u.uname };
+	console.log(resp);
+		res.json(resp);
+	}
+	else{
+	console.log('failed');
+	}
 };
 
 exports.initSocket = function(socket) {
