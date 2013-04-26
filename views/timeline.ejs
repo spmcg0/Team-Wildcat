@@ -13,7 +13,7 @@
 			</a>
 			<button>@ Connect</button>
 			<button># Discover</button>
-			<a href="/login/profile_page">
+			<a href="/profile_page">
 				<button>Me</button>	
 			</a>
 			<button>Settings</button>
@@ -38,12 +38,12 @@
 					<span id="tweet_count_text">Tweets</span>
 				</div>
 				<div id="follower_count">
-					<a href="/login/followers">
+					<a href="/followers">
 						<button><%= user.followerCount %> Followers </button>
 					</a>
 				</div>
 				<div id="following_count">
-					<a href="/login/following">
+					<a href="/following">
 						<button><%= user.followingCount %> Following </button>
 					</a>
 				</div>
@@ -56,7 +56,8 @@
 				<% for (var k = len - 1; k >= 0; k--) { %>
 					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
 						<img src=<%= timeline[k].image_loc %> height="40" width="40" />
-						<%= timeline[k].name %>: <%= timeline[k].tweet %> 
+						<%= timeline[k].name %> @<%= timeline[k].uname %> <br>
+						<%= timeline[k].tweet %> 
 					</li>
 				<% } %>
 			</ul>

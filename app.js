@@ -4,8 +4,6 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , timeline = require('./routes/timeline')
-  , profile_page = require('./routes/profile_page')
   , discover = require('./routes/discover')
   , login = require('./routes/login')
   , search = require('./routes/search')
@@ -37,17 +35,15 @@ app.configure('production', function(){
 });
 
 //Routes
-app.get('/', routes.index);
-app.get('/timeline', timeline.timeline);
-app.get('/profile_page', profile_page.profile_page);
+app.get('/', login.login);
 app.get('/discover', discover.discover);
 app.get('/login', login.login);
 app.post('/login/auth', login.auth);
 app.get('/login/main', login.main);
-app.get('/login/profile_page', login.profile_page);
-app.get('/login/timeline', login.timeline);
-app.get('/login/followers', login.followers);
-app.get('/login/following', login.following);
+app.get('/profile_page', login.profile_page);
+app.get('/timeline', login.timeline);
+app.get('/followers', login.followers);
+app.get('/following', login.following);
 app.get('/register', register.register);
 app.post('/register/submit', register.submit);
 app.get('/register/add', register.add);

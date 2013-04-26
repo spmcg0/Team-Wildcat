@@ -10,7 +10,7 @@
 			</a>
 			<button>@ Connect</button>
 			<button># Discover</button>
-			<a href="/login/profile_page">
+			<a href="/profile_page">
 				<button>Me</button>	
 			</a>
 			<button>Settings</button>
@@ -33,7 +33,10 @@
 				<% for (var k = 0; k < len; k++) { %>
 					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
 						<img src=<%= users[k].imageLoc %> height="40" width="40" />
-						<%= users[k].first %> <%= users[k].last %>: <%= users[k].uname %> 
+						<%= users[k].first %> <%= users[k].last %> 
+						<a href="/<%= users[k].uname %>">
+							@<%= users[k].uname %>
+						</a>
 						<form method ="post" id ="follow" style="float:right;" action="/follow">
 							<input type="hidden" name="current_uname" value=<%= user.uname %> />
 							<input type="hidden" name="current_pword" value=<%= user.pword %> />

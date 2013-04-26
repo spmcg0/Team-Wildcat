@@ -29,7 +29,7 @@ exports.follow = function (req, res) {
   var user_to_follow_pword = req.body.user_to_follow_pword;
   var user_to_follow;
   if(current_uname === user_to_follow_uname){
-    res.redirect('/login/timeline');
+    res.redirect('/timeline');
   }
   else{
     user.getUser(current_uname, current_pword, function (error, user){

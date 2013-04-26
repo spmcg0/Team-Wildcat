@@ -98,7 +98,7 @@ exports.main = function (req, res) {
 				online[userid]['followings'] = followings;	
 			}
 		});
-		res.redirect('/login/timeline');
+		res.redirect('/timeline');
 
 	}
 };
@@ -137,7 +137,8 @@ function tweetData(req) {
   	tweet = {
       uname: req.query.uname,
       tweets: {
-      	name: req.query.uname,
+      	name : req.query.name,
+      	uname: req.query.uname,
       	image_loc: req.query.image_loc,
       	tweet: req.query.tweet,
       }
@@ -147,7 +148,8 @@ function tweetData(req) {
     tweet = {
       uname: req.body.uname,
       tweets: {
-      	name: req.body.uname,
+      	name: req.body.name,
+      	uname: req.body.uname,
       	image_loc: req.body.image_loc,
       	tweet: req.body.tweet,
       }
