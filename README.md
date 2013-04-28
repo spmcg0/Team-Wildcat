@@ -33,3 +33,13 @@ Project Assignment 04 Additions
 - Websockets -
 
 - javascripts/timeline_update.js: function updateTimeline: adds received tweets to the timeline (formatted for the table)
+
+
+Project Assignment 05 Additions
+
+- added /data/ folder containing our .sql file that creates the database
+- database contains 3 tables: Users, Tweets, Follows
+	- Users: first name, last name, username, password, picture (the location of the image)
+	- Tweets: tweet id number (automatically increments), email, the tweet text (max 160 characters), and the email that is linked to the user
+	- Follows: # of followers, # of followees, and keys that reference to the users table
+- change functions to use our database rather than our previous arrays
