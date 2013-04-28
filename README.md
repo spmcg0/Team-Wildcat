@@ -4,7 +4,7 @@
               How to Run
 You can run our app using `node app.js`
  
-      Project Assignment 03 Additions
+Project Assignment 03 Additions
 
 - app.js: New Routes: New additions for registering such as connecting you to the register page and adding a user. 
 
@@ -27,12 +27,12 @@ Project Assignment 04 Additions
 
 - Ajax - 
 
-- profile_page.js: Function postPair: creates an XMLHTTPRequest (depending on the format, xml or json) and POSTs
-- javascripts/someFile.js - function: attemptTweet: takes the username and tweet and creates an XMLHttpRequest and tries to POST that data to our local /login/
+	- profile_page.js: Function postPair: creates an XMLHTTPRequest (depending on the format, xml or json) and POSTs
+	- javascripts/someFile.js - function: attemptTweet: takes the username and tweet and creates an XMLHttpRequest and tries to POST that data to our local /login/
 
 - Websockets -
 
-- javascripts/timeline_update.js: function updateTimeline: adds received tweets to the timeline (formatted for the table)
+	- javascripts/timeline_update.js: function updateTimeline: adds received tweets to the timeline (formatted for the table)
 
 
 Project Assignment 05 Additions
@@ -42,4 +42,4 @@ Project Assignment 05 Additions
 	- Users: first name, last name, username, password, picture (the location of the image)
 	- Tweets: tweet id number (automatically increments), email, the tweet text (max 160 characters), and the email that is linked to the user
 	- Follows: # of followers, # of followees, and keys that reference to the users table
-- change functions to use our database rather than our previous arrays
+- change functions to use our database rather than our previous variables
