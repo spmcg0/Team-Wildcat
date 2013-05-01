@@ -5,74 +5,70 @@
 		<script type="text/javascript" src="/javascripts/jquery-min.js"></script>
 		<script type="text/javascript" src="/javascripts/someFile.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="/js/kickstart.js"></script> <!-- KICKSTART -->
+		<link rel="stylesheet" type="text/css" href="/css/kickstart.css" media="all" /> <!-- KICKSTART -->
+		<link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
 	<head/>
 
 	<body>
-		<div id = "header" style="background-color:#000000;">
-			<a href="/login/main">
-				<button>Home</button>
-			</a>
-			<button>@ Connect</button>
-			<button># Discover</button>
-			<a href="/profile_page">
-				<button>Me</button>	
-			</a>
-			<button>Settings</button>
-			<a href="/logout">
-				<button>Logout</button>
-			</a>
-			<form method ="get" id ="seach" style="float:right;" action="/search">
+	  	<!-- Menu Horizontal -->
+		<ul class="menu">
+			<li><a href="login/main"><i class="icon-home"></i>Home</a></li>
+			<li><a href="/profile_page"><i class="icon-user"></i>Me</a></li>
+			<li>
+			<form method ="get" id ="seach" action="/search">
 				<input type="hidden" name="uname" value=<%= user.uname %> />
 				<input type="hidden" name="pword" value=<%= user.pword %> />
-				<input type="text" name="search_uname"/>
-				<input type="submit" name="submit" value="Search" />
+				<input id="text1" name="search_uname"/>
+				<input type="Submit" name="submit" value="Search" />
 			</form>
+			</li>
+			<li><a href="/logout"><i class="icon-remove-circle"></i>Logout</a></li>
+		</ul>
 
-		</div>
+		<!-- START GRID -->
+		<div class="grid">
+			<div class="col_12">
+				<div class="col_4">
+					<input type="hidden" name="name" value=<%= user.first + user.last%> />
+					<input type="hidden" name="uname" value = <%= user.uname %> /> 
+					<input type="hidden" name="image_loc" value=<%= user.imageLoc %> />
+					<textarea name="tweet" placeholder="Compose"> </textarea>
+					<input type="button" name="submit" value="Compose" onclick="attemptTweet()" />
+				</div>
+				<div class="col_2"></div>
+				<div class="col_4">
+					<div id="profile_info">
+						<img id="profile_image" src=<%= user.imageLoc %> height="50" weight="50"/>
+						<h6><%= user.first %> <%= user.last %></h6>
+					</div>
+					<div class="account-group">
 
-		<div id="user_info">
-			<div id="profile_info">
-				<img src=<%= user.imageLoc %> height="50" weight="50"/>
-				<span id="profile_name" onclick="<insert link to profile"><%= user.first %> <%= user.last %></span>	
+						<ul class="button-bar small">
+							<li><a href="/profile_page"><%= user.tweetCount %> Tweets</a></li>
+							<li><a href="/followers"><%= user.followerCount %> Followers</a></li>
+							<li><a href="/following"><%= user.followingCount %> Following</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<div id="profile_stats">
-				<div id="tweet_count">
-					<span id="tweet_count_num"><%= user.tweetCount %></span>
-					<span id="tweet_count_text">Tweets</span>
-				</div>
-				<div id="follower_count">
-					<a href="/followers">
-						<button><%= user.followerCount %> Followers </button>
-					</a>
-				</div>
-				<div id="following_count">
-					<a href="/following">
-						<button><%= user.followingCount %> Following </button>
-					</a>
+			<div class="col_12">
+				<div class="col_4"></div>
+				<div class="col_8">
+					<h3><strong>Tweets</strong></h3>
+					<ul class="alt" id="tweet_list">
+						<% var len = (tweets === undefined) ? 0 : tweets.length; %>
+						<% for (var k = len - 1; k >= 0; k--) { %>
+							<li>
+								<img src=<%= tweets[k].image_loc %> height="40" width="40" />
+								<strong><%= tweets[k].name %></strong> <em>@<%= tweets[k].uname %></em> <%= tweets[k].tweet %> 
+							</li>
+						<% } %>
+					</ul>
 				</div>
 			</div>
-		</div>
-
-		<div>
-			<input type="hidden" name="name" value=<%= user.first + user.last%> />
-			<input type="hidden" name="uname" value = <%= user.uname %> /> 
-			<input type="hidden" name="image_loc" value=<%= user.imageLoc %> />
-			<input type="text" name="tweet" placeholder="Tweet!"/> 
-			<input type="button" name="submit" value="Compose" onclick="attemptTweet()" />
-		</div>
-
-		<h1>Tweets</h1>
-		<div id="tweets">
-			<ul style="list-style: none" id="tweet_list">
-				<% var len = (tweets === undefined) ? 0 : tweets.length; %>
-				<% for (var k = len - 1; k >= 0; k--) { %>
-					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
-						<img src=<%= tweets[k].image_loc %> height="40" width="40" />
-						<%= tweets[k].name %> @<%= tweets[k].uname %> <br>
-						<%= tweets[k].tweet %> 
-					</li>
-				<% } %>
-			</ul>
 		</div>
 
 	</body>

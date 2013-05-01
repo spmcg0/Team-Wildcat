@@ -2,28 +2,28 @@
 <html>
 	<head>
     	<title>Following</title>
+
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="/js/kickstart.js"></script> <!-- KICKSTART -->
+		<link rel="stylesheet" type="text/css" href="/css/kickstart.css" media="all" /> <!-- KICKSTART -->
+		<link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
   	</head>
   	<body>
-	  	<div id = "header" style="background-color:#000000;">
-			<a href="/login/main">
-				<button>Home</button>
-			</a>
-			<button>@ Connect</button>
-			<button># Discover</button>
-			<a href="/profile_page">
-				<button>Me</button>	
-			</a>
-			<button>Settings</button>
-			<a href="/logout">
-				<button>Logout</button>
-			</a>
-			<form method ="get" id ="seach" style="float:right;" action="/search">
+	  	<!-- Menu Horizontal -->
+		<ul class="menu">
+			<li><a href="login/main"><i class="icon-home"></i>Home</a></li>
+			<li><a href="/profile_page"><i class="icon-user"></i>Me</a></li>
+			<li>
+			<form method ="get" id ="seach" action="/search">
 				<input type="hidden" name="uname" value=<%= user.uname %> />
 				<input type="hidden" name="pword" value=<%= user.pword %> />
-				<input type="text" name="search_uname"/>
-				<input type="submit" name="submit" value="Search" />
+				<input id="text1" name="search_uname"/>
+				<input type="Submit" name="submit" value="Search" />
 			</form>
-		</div>
+			</li>
+			<li><a href="/logout"><i class="icon-remove-circle"></i>Logout</a></li>
+		</ul>
+
 		<div id="user_info">
 			<div id="profile_info">
 				<img id="profile_image" src=<%= user.imageLoc %> height="50" weight="50"/>

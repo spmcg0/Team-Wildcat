@@ -13,7 +13,7 @@
 
 function attemptTweet(){
 	var name = $('input[name="name"]').val();
-	var text = $('input[name="tweet"]').val();
+	var text = $('textarea[name="tweet"]').val();
 	var uname = $('input[name="uname"]').val();
 	var image_loc = $('input[name="image_loc"]').val();
 	var request = new XMLHttpRequest();
@@ -37,7 +37,7 @@ function tweetCallback(response) {
 			"<img src=" + t.image_loc + " height='40' width='40' />" + " " + t.name + " @" + t.uname + 
 			"<br>" + t.tweet +
 			"</li>");
-		$('input[name="tweet"]').val("");
+		$('textarea[name="tweet"]').val("");
 		// TODO broadcast the tweet stuff
 		console.log("attempting to emit the tweet");
 		var socket = io.connect();
