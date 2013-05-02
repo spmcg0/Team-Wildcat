@@ -75,7 +75,7 @@ exports.main = function (req, res) {
 				online[userid]['tweets'] = tweets;	
 			}
 		});
-		user.getUserTimeline(u, function(error, timeline){
+		db_users.getUserTimeline(u, function(error, timeline){
 			if(error){
 				console.log("error in getting timeline");
 			}
