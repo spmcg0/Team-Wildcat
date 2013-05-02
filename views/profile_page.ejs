@@ -45,6 +45,10 @@
 					<input type="hidden" name="image_loc" value=<%= user.imageLoc %> />
 					<textarea id="tweet" name="tweet" placeholder="Compose"> </textarea>
 					<input type="button" name="submit" value="Compose" onclick="attemptTweet()" />
+					<br>
+					<br>
+					<input type="hidden" name="pword" value=<%= user.pword %> />
+					<button class="large red" onclick="addOneFollower()"><i class="icon-plus"></i> Add 1 Follower</button>
 				</div>
 				<div class="col_2"></div>
 				<div class="col_4">
