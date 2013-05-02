@@ -1,8 +1,8 @@
 function updateTimeline(t){
   console.log("recieved: " + t);
-  $('#timeline ul').prepend(
-      "<li style='border-width: 1px; border-color: black; border-style: solid; width: 50%;'>" + 
-      "<img src=" + t.image_loc + " height='40' width='40' />" + t.name + ": " + t.tweet +
+  $('#timeline-list').prepend(
+      "<li>" + 
+      "<img src=" + t.image_loc + " height='40' width='40' />" + " <strong>" + t.name + "</strong> <em>@" + t.uname + "</em>" + t.tweet +
       "</li>");
 }
 
