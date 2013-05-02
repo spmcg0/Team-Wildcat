@@ -5,6 +5,7 @@
 		<script type="text/javascript" src="/javascripts/jquery-min.js"></script>
 		<script type="text/javascript" src="/javascripts/someFile.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="all"/>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="/js/kickstart.js"></script> <!-- KICKSTART -->
@@ -16,26 +17,33 @@
 	  	<!-- Menu Horizontal -->
 		<ul class="menu">
 			<li><a href="login/main"><i class="icon-home"></i>Home</a></li>
-			<li><a href="/profile_page"><i class="icon-user"></i>Me</a></li>
-			<li>
-			<form method ="get" id ="seach" action="/search">
+			<li class="current"><a href="/profile_page"><i class="icon-user"></i>Me</a></li>
+			<li id="floatright"><a href="/logout"><i class="icon-remove-circle"></i>Logout</a></li>
+			<li id ="floatright">
+			<form method ="get" id ="search" action="/search">
 				<input type="hidden" name="uname" value=<%= user.uname %> />
 				<input type="hidden" name="pword" value=<%= user.pword %> />
 				<input id="text1" name="search_uname"/>
 				<input type="Submit" name="submit" value="Search" />
 			</form>
 			</li>
-			<li><a href="/logout"><i class="icon-remove-circle"></i>Logout</a></li>
 		</ul>
 
 		<!-- START GRID -->
 		<div class="grid">
 			<div class="col_12">
 				<div class="col_4">
+					<!-- Menu Vertical Left -->
+					<ul class="menu vertical">
+						<li class="current" style="border-bottom: solid 1px #C0C0C0;"><a href="/profile_page">Tweets<i id="floatright" class="icon-chevron-right"></i></a></li>
+						<li style="border-bottom: solid 1px #C0C0C0;"><a href="/followers">Followers<i id="floatright" class="icon-chevron-right"></i></a></li>
+						<li><a href="/following">Following<i id="floatright" class="icon-chevron-right"></i></a></li>
+					</ul>
+					<br>
 					<input type="hidden" name="name" value=<%= user.first + user.last%> />
 					<input type="hidden" name="uname" value = <%= user.uname %> /> 
 					<input type="hidden" name="image_loc" value=<%= user.imageLoc %> />
-					<textarea name="tweet" placeholder="Compose"> </textarea>
+					<textarea id="tweet" name="tweet" placeholder="Compose"> </textarea>
 					<input type="button" name="submit" value="Compose" onclick="attemptTweet()" />
 				</div>
 				<div class="col_2"></div>
@@ -63,7 +71,7 @@
 						<% for (var k = len - 1; k >= 0; k--) { %>
 							<li>
 								<img src=<%= tweets[k].image_loc %> height="40" width="40" />
-								<strong><%= tweets[k].name %></strong> <em>@<%= tweets[k].uname %></em> <%= tweets[k].tweet %> 
+								<strong><%= tweets[k].name %></strong> <em>@<%= tweets[k].uname %>:</em> <%= tweets[k].tweet %> 
 							</li>
 						<% } %>
 					</ul>

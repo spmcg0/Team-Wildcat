@@ -16,7 +16,7 @@ exports.search = function (req, res) {
   var results;
   user.getSearchResults(search_uname, function (error, users){
     results = users;
-    res.render('search', { user : u, users : results })
+    res.render('search', { user : u, users : results, search : search_uname })
   });
   
 };

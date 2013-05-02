@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
-<h1>Register For Twitter</h1>
-<form action="/register/submit" method="post"><br>
-	First Name: <input type="text" name="first"><br>
-	Last Name: <input type="text" name="last"><br>
-	Username: <input type="text" name="uname"><br>
-	Email: <input type="text" name="email"><br>
-	Password: <input type="password" name="pword"><br>
-	Confirm Password: <input type="password" name="confirmPword"><br>
-	<input type="submit" text="Register">
-</form>
-<%= message %>
+<head>
+	<title>Twitter</title>
+	<script src="/js/kickstart.js"></script> <!-- KICKSTART -->
+	<link rel="stylesheet" type="text/css" href="/css/kickstart.css" media="all" /> <!-- KICKSTART -->
+	<link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="all"/>
+</head>
+
+<body>
+	<div id="loginForm" class="col_4">
+		<h3><strong>Twitter</strong></h3>
+		<form class="vertical" method="post" action="/register/submit">
+			<label for="first">First Name</label>
+			<input id="first" name="first" type="text"/>
+
+			<label for="last">Last Name</label>
+			<input id="last" name="last" type="text"/>
+
+			<label for="uname">Username</label>
+			<input id="uname" name="uname" type="text"/>
+
+			<label for="email">Email</label>
+			<input id="email" name="email" type="text"/>
+
+			<label for="pword">Password</label>
+			<input id="pword" name="pword" type="password"/>
+
+			<label for="confirmPword">Password</label>
+			<input id="confirmPword" name="confirmPword" type="password"/>
+
+			<input type="Submit" value="Register" /> 
+		</form>
+		<h6>Already have an account? <a href="/login">Login here.</a>
+	</div>
+</body>
 </html>

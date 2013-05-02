@@ -2,68 +2,77 @@
 <html>
 	<head>
     	<title>Followers</title>
-
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="all"/>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="/js/kickstart.js"></script> <!-- KICKSTART -->
 		<link rel="stylesheet" type="text/css" href="/css/kickstart.css" media="all" /> <!-- KICKSTART -->
 		<link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
   	</head>
   	<body>
-	  	<!-- Menu Horizontal -->
+	  		  	<!-- Menu Horizontal -->
 		<ul class="menu">
 			<li><a href="login/main"><i class="icon-home"></i>Home</a></li>
 			<li><a href="/profile_page"><i class="icon-user"></i>Me</a></li>
-			<li>
-			<form method ="get" id ="seach" action="/search">
+			<li id="floatright"><a href="/logout"><i class="icon-remove-circle"></i>Logout</a></li>
+			<li id ="floatright">
+			<form method ="get" id ="search" action="/search">
 				<input type="hidden" name="uname" value=<%= user.uname %> />
 				<input type="hidden" name="pword" value=<%= user.pword %> />
 				<input id="text1" name="search_uname"/>
 				<input type="Submit" name="submit" value="Search" />
 			</form>
 			</li>
-			<li><a href="/logout"><i class="icon-remove-circle"></i>Logout</a></li>
 		</ul>
 
-		<div id="user_info">
-			<div id="profile_info">
-				<img id="profile_image" src=<%= user.imageLoc %> height="50" weight="50"/>
-				<span id="profile_name" onclick="<insert link to profile>"><%= user.first %> <%= user.last %></span>
-			</div>
-			<div id="profile_stats">
-				<div id="tweet_count">
-					<span id="tweet_count_num"><%= user.tweetCount %></span>
-					<span id="tweet_count_text">Tweets</span>
+		<!-- START GRID -->
+		<div class="grid">
+			<div class="col_12">
+				<div class="col_4">
+					<!-- Menu Vertical Left -->
+					<ul class="menu vertical">
+						<li style="border-bottom: solid 1px #C0C0C0;"><a href="/profile_page">Tweets<i id="floatright" class="icon-chevron-right"></i></a></li>
+						<li class="current" style="border-bottom: solid 1px #C0C0C0;"><a href="/followers">Followers<i id="floatright" class="icon-chevron-right"></i></a></li>
+						<li><a href="/following">Following<i id="floatright" class="icon-chevron-right"></i></a></li>
+					</ul>
 				</div>
-				<div id="follower_count">
-					<a href="/followers">
-						<button><%= user.followerCount %> Followers </button>
-					</a>
-				</div>
-				<div id="following_count">
-					<a href="/following">
-						<button><%= user.followingCount %> Following </button>
-					</a>
-				</div>
-		</div>
+				<div class="col_2"></div>
+				<div class="col_4">
+					<div id="profile_info">
+						<img id="profile_image" src=<%= user.imageLoc %> height="50" weight="50"/>
+						<h6><%= user.first %> <%= user.last %></h6>
+					</div>
+					<div class="account-group">
 
-		<h1>Followers</h1>
-		<div id="followers">
-			<ul style="list-style: none">
-				<% var len = (followers === undefined) ? 0 : followers.length; %>
-				<% for (var k = 0; k < len; k++) { %>
-					<li style="border-width: 1px; border-color: black; border-style: solid; width: 50%;"> 
-						<img src=<%= followers[k].imageLoc %> height="40" width="40" />
-						<%= followers[k].first %> <%= followers[k].last %>: <%= followers[k].uname %>
-						<form method ="post" id ="follow" style="float:right;" action="/follow">
-							<input type="hidden" name="current_uname" value=<%= user.uname %> />
-							<input type="hidden" name="current_pword" value=<%= user.pword %> />
-							<input type="hidden" name="user_to_follow_uname" value= <%= followers[k].uname %> />
-							<input type="hidden" name="user_to_follow_pword" value= <%= followers[k].pword %> />
-							<input type="submit" name="submit" value="Follow" />
-						</form> 
-					</li>
-				<% } %>
-			</ul>
+						<ul class="button-bar small">
+							<li><a href="/profile_page"><%= user.tweetCount %> Tweets</a></li>
+							<li><a href="/followers"><%= user.followerCount %> Followers</a></li>
+							<li><a href="/following"><%= user.followingCount %> Following</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col_12">
+				<div class="col_4"></div>
+				<div class="col_8">
+					<h3><strong>Followers</strong></h3>
+					<ul class="alt" id="followers_list">
+						<% var len = (followers === undefined) ? 0 : followers.length; %>
+						<% for (var k = 0; k < len; k++) { %>
+							<li>
+								<img src=<%= followers[k].imageLoc %> height="40" width="40" />
+								<strong><%= followers[k].first %> <%= followers[k].last %></strong> <em>@<%= followers[k].uname %></em>
+								<form method ="post" id ="follow" style="float:right;" action="/follow">
+									<input type="hidden" name="current_uname" value=<%= user.uname %> />
+									<input type="hidden" name="current_pword" value=<%= user.pword %> />
+									<input type="hidden" name="user_to_follow_uname" value= <%= followers[k].uname %> />
+									<input type="hidden" name="user_to_follow_pword" value= <%= followers[k].pword %> />
+									<input type="submit" name="submit" value="Follow" />
+								</form> 
+							</li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
 		</div>
 
 	</body>

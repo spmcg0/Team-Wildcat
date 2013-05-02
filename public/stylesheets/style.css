@@ -7,3 +7,14 @@ a {
   color: #00B7FF;
 }
 
+#tweet{
+	width: 100%;
+}
+
+#floatright{
+	float:right;
+}
+
+#loginForm{
+	margin-left: 30%;
+}

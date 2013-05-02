@@ -5,26 +5,26 @@
 		<script type="text/javascript" src="/javascripts/jquery-min.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="/javascripts/timeline_update.js"></script>
-
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="all"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="/js/kickstart.js"></script> <!-- KICKSTART -->
 		<link rel="stylesheet" type="text/css" href="/css/kickstart.css" media="all" /> <!-- KICKSTART -->
 		<link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
   	</head>
   	<body>
-	  	<!-- Menu Horizontal -->
+	  		  	<!-- Menu Horizontal -->
 		<ul class="menu">
-			<li><a href="login/main"><i class="icon-home"></i>Home</a></li>
+			<li class="current"><a href="login/main"><i class="icon-home"></i>Home</a></li>
 			<li><a href="/profile_page"><i class="icon-user"></i>Me</a></li>
-			<li>
-			<form method ="get" id ="seach" action="/search">
+			<li id="floatright"><a href="/logout"><i class="icon-remove-circle"></i>Logout</a></li>
+			<li id ="floatright">
+			<form method ="get" id ="search" action="/search">
 				<input type="hidden" name="uname" value=<%= user.uname %> />
 				<input type="hidden" name="pword" value=<%= user.pword %> />
 				<input id="text1" name="search_uname"/>
 				<input type="Submit" name="submit" value="Search" />
 			</form>
 			</li>
-			<li><a href="/logout"><i class="icon-remove-circle"></i>Logout</a></li>
 		</ul>
 
 		<!-- START GRID -->
@@ -36,7 +36,6 @@
 						<h6><%= user.first %> <%= user.last %></h6>
 					</div>
 					<div class="account-group">
-
 						<ul class="button-bar small">
 							<li><a href="/profile_page"><%= user.tweetCount %> Tweets</a></li>
 							<li><a href="/followers"><%= user.followerCount %> Followers</a></li>
@@ -51,7 +50,7 @@
 						<% for (var k = len - 1; k >= 0; k--) { %>
 							<li> 
 								<img src=<%= timeline[k].image_loc %> height="40" width="40" />
-								<strong><%= timeline[k].name %></strong> <em>@<%= timeline[k].uname %></em> <%= timeline[k].tweet %> 
+								<strong><%= timeline[k].name %></strong> <em>@<%= timeline[k].uname %>:</em> <%= timeline[k].tweet %> 
 							</li>
 						<% } %>
 					</ul>
