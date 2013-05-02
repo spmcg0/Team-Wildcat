@@ -68,7 +68,7 @@ exports.main = function (req, res) {
 	}
 	else {
 		var u = online[userid];
-		user.getUserTweets (u, function(error, tweets){
+		db_users.getUserTweets (u, function(error, tweets){
 			if(error){
 				console.log("error");
 			}else{
@@ -83,7 +83,7 @@ exports.main = function (req, res) {
 				online[userid]['timeline'] = timeline;
 			}
 		})
-		user.getUserFollowers (u.uname, function(error, followers){
+		db_users.getUserFollowers (u.uname, function(error, followers){
 			if(error){
 				console.log("error");
 			}
@@ -91,7 +91,7 @@ exports.main = function (req, res) {
 				online[userid]['followers'] = followers;	
 			}
 		});
-		user.getUserFollowings (u, function(error, followings){
+		db_users.getUserFollowings (u, function(error, followings){
 			if(error){
 				console.log("error");
 			}
