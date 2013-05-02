@@ -1,10 +1,11 @@
 var user = require('../lib/users');
+var db_users = require('../lib/db_users');
 
 exports.search = function (req, res) {
   var uname = req.query.uname;
   var pword = req.query.pword;
   var u;
-  user.getUser(uname, pword, function (error, user){
+  db_users.getUser(uname, pword, function (error, user){
       if (error){
         res.redirect('/login');
       } else {
@@ -14,7 +15,7 @@ exports.search = function (req, res) {
 
   var search_uname = req.query.search_uname;
   var results;
-  user.getSearchResults(search_uname, function (error, users){
+  db_users.getSearchResults(search_uname, function (error, users){
     results = users;
     res.render('search', { user : u, users : results, search : search_uname })
   });

@@ -46,7 +46,7 @@ exports.auth = function(req, res){
 	else {
 		var uname = req.body.uname;
 		var pword = req.body.pword;
-		user.getUser(uname, pword, function (error, u){
+		db_users.getUser(uname, pword, function (error, u){
 			if (error){
 				flash(req, res, 'auth', error);
 				res.redirect('/login');
