@@ -1,4 +1,5 @@
 var user = require('../lib/users');
+var db_users = require('../lib/db_users');
 var message = '';
 
 function flash (req, res, name, value) {
@@ -45,7 +46,7 @@ exports.add = function (req, res) {
 	var uname = u.uname;
 	var pword = u.pword;
 	console.log(first + " " + last + " " + email + " " + uname + " " + pword);
-	user.addUser(first, last, email, uname, pword, function (error){
+	db_users.addUser(first, last, email, uname, pword, function (error){
 		if (error){
 			message = error;
 			res.redirect('/register');

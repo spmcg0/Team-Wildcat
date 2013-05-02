@@ -1,4 +1,5 @@
 var user = require('../lib/users');
+var db_users = require('../lib/db_users');
 var authResp;
 var userids = 0;
 var online = {};
