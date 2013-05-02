@@ -171,7 +171,7 @@ exports.postTweet = function (req, res) {
 	});
 	u.tweetCount++;
 	var t = u.tweets;
-	var resp = { tweets : t, uname : u.uname };
+	var resp = { tweets : t, uname : u.uname, tweetCount : u.tweetCount };
 	console.log(resp);
 		res.json(resp);
 	}
@@ -179,6 +179,20 @@ exports.postTweet = function (req, res) {
 	console.log('failed');
 	}
 };
+
+exports.addOneFollower = function(req, res){
+	var uname = req.body.uname;
+  	var pword = req.body.password;
+  	console.log(uname + " " + pword);
+  	var u;
+  	user.getUser(uname, pword, function (error, user){
+       	user.followerCount++;
+       	u = user;
+    });
+    var resp = {followerCount: u.followerCount};
+    console.log(resp);
+    res.json(resp);
+}
 
 exports.initSocket = function(socket) {
 	socket.on('tweet', function (data) {
