@@ -32,10 +32,9 @@ function attemptTweet(){
 function tweetCallback(response) {
 	if (response.tweets !== undefined && response.uname !== undefined){
 		var t = response.tweets[response.tweets.length-1];
-		$('#tweets ul').prepend(
-			"<li style='border-width: 1px; border-color: black; border-style: solid; width: 50%;'>" + 
-			"<img src=" + t.image_loc + " height='40' width='40' />" + " " + t.name + " @" + t.uname + 
-			"<br>" + t.tweet +
+		$('#tweet_list').prepend(
+			"<li>" + 
+			"<img src=" + t.image_loc + " height='40' width='40' />" + " <strong>" + t.name + "</strong> <em>@" + t.uname + "</em>" + t.tweet +
 			"</li>");
 		$('textarea[name="tweet"]').val("");
 		// TODO broadcast the tweet stuff
