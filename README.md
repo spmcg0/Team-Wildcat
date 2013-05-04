@@ -43,3 +43,4 @@ Project Assignment 05 Additions
 	- Tweets: tweet id number (automatically increments), email, the tweet text (max 160 characters), and the email that is linked to the user
 	- Follows: # of followers, # of followees, and keys that reference to the users table
 - change functions to use our database rather than our previous variables
+- added new functionality (Original Idea) + 1 Follower button. Clicking the button adds a follower to your count. When looking at user's followers, this area is not filled with anything but your actual followers. The number is the only representation of these additional fake followers. Will be a big hit when it goes live, will be potential revenue if we decide to charge users for this premium feature.
